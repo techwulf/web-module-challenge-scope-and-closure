@@ -64,8 +64,17 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+  The function after the return statement. It's variables aren't accessible to the main
+  function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+  The name is always the same. You could have a name variable outside of the callback
+  function. Then reassign it later.
+
 c. What is the lexical scope of `newRoll`? 
+  Inside of the callback function within personalDice.
 
 
 ### Task 3 - Stretch Goals
