@@ -75,7 +75,7 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(){
-  return Math.floor(Math.random()*2);
+  return Math.round(Math.random()*2);
 }
 
 
@@ -156,15 +156,28 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(getInningScore, inning, innings) {
+function scoreboard(getInningScore, inn, innings) {
+  const scoreBoard = [];
   let home = 0;
   let away = 0;
+  console.log(inning());
   for (let i=0;i<innings;i++) {
-    console.log("test is not running?");
+    const homeInn = inn();
+    const awayInn = inn();
+    scoreBoard.push(`Inning ${i+1}: Away ${awayInn} - Home ${homeInn}`);
+    home += homeInn;
+    away += awayInn;
   }
+  if (home === away) {
+    scoreBoard.push(`This game will require extra innings: Away ${away} - Home ${home}`);
+  } else {
+    scoreBoard.push(`Final Score: Away ${away} - Home ${home}`);
+  }
+
+  return scoreBoard;
 }
 
-
+console.log(scoreboard(getInningScore, inning, 9));
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
